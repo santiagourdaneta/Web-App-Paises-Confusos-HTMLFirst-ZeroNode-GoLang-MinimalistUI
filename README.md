@@ -1,6 +1,6 @@
 # 🎌 Países Confusos - Estilo 1973
 
-[![CI-CD_Paises_Confusos]https://github.com/santiagourdaneta/Web-App-Paises-Confusos-HTMLFirst-ZeroNode-GoLang-MinimalistUI/actions/workflows/ci.yml/badge.svg)](https://github.com/santiagourdaneta/Web-App-Paises-Confusos-HTMLFirst-ZeroNode-GoLang-MinimalistUI/actions)
+[![CI-CD_Paises_Confusos][(https://github.com/santiagourdaneta/Web-App-Paises-Confusos-HTMLFirst-ZeroNode-GoLang-MinimalistUI/actions/workflows/ci.yml/badge.svg)](https://github.com/santiagourdaneta/Web-App-Paises-Confusos-HTMLFirst-ZeroNode-GoLang-MinimalistUI/actions)
 
 Una aplicación web **User-First** diseñada para laptops y celulares antiguos, donde la velocidad y la estética se encuentran. Inspirada en la elegancia letal de **Meiko Kaji** en *Lady Snowblood (1973)*.
 
@@ -41,4 +41,3 @@ cd Web-App-Paises-Confusos-HTMLFirst-ZeroNode-GoLang-MinimalistUI
 
 # Correr con Makefile
 make run
-
