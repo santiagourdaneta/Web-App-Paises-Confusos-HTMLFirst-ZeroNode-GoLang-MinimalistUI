@@ -15,4 +15,5 @@ COPY --from=builder /app/index.html .
 # COPY --from=builder /app/static ./static
 
 EXPOSE 8080
-CMD ["./main"
+
+CMD ["./main"]
