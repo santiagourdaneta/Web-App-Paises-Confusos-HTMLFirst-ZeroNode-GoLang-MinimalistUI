@@ -1,0 +1,52 @@
+name: CI-CD_Paises_Confusos
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Clonar código
+        uses: actions/checkout@v4
+
+      - name: 🐹 Configurar Go (Motor)
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.22'
+
+      - name: 🔍 Linter y Formato
+        run: |
+          go fmt ./...
+          go vet ./...
+
+      - name: 🧪 Pruebas Unitarias e Integración
+        run: go test -v ./...
+
+      - name: 🐍 Configurar Python (Para E2E)
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 🎭 Instalar Playwright y Probar E2E
+        run: |
+          pip install playwright
+          playwright install chromium
+          # Aquí lanzamos la app en background para poder testearla
+          go run main.go & 
+          sleep 5
+          python test_e2e.py
+
+  deploy:
+    needs: build-and-test # SOLO si los tests pasan, se ejecuta este job
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: 🚀 Desplegar a Railway/Render
+        run: |
+          echo "Ejecutando comando de deploy..."
+          # Aquí pondrías el webhook de tu servidor
+          # curl -X POST ${{ secrets.DEPLOY_WEBHOOK }}

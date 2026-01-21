@@ -1,0 +1,143 @@
+:root {
+    --bg: #1a1a1a;
+    --card-bg: #262626;
+    --text: #f5f5f1;
+    --accent: #8b0000; /* Rojo Shurayuki-hime */
+    --secondary: #d4af37; /* Oro viejo japonés */
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: "Georgia", serif; /* Tipografía clásica de póster de cine */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    border-bottom: 3px solid var(--accent);
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"] {
+    background: #000;
+    border: 2px solid var(--text);
+    color: var(--text);
+    padding: 15px;
+    width: 100%;
+    max-width: 500px;
+    font-size: 1.2rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--accent);
+}
+
+.card {
+    background: var(--card-bg);
+    border-left: 5px solid var(--accent);
+    margin: 20px 0;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card h2 {
+    color: var(--secondary);
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.card .confuso {
+    background: var(--accent);
+    color: white;
+    padding: 2px 8px;
+    font-weight: bold;
+}
+
+/* Animación sutil estilo entrada de créditos */
+.card {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optimización para móviles viejos */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    .card {
+        padding: 15px;
+    }
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.05"/></svg>');
+    pointer-events: none;
+    z-index: 9999;
+}
+footer {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 600px;
+    border-top: 1px solid var(--text);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+footer:hover {
+    opacity: 1;
+}
+
+footer a {
+    color: var(--secondary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+footer a:hover {
+    border-bottom: 1px solid var(--secondary);
+}
+
+.footer-content p {
+    margin: 5px 0;
+}

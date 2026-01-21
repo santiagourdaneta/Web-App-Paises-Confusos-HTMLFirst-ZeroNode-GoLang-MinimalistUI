@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>¿Eslovenia o Eslovaquia? | Guía de Países Confusos</title>
+        <meta
+            name="description"
+            content="Aprende a diferenciar países con nombres parecidos. Rápido, ligero y sin publicidad."
+        />
+        <link rel="canonical" href="https://tu-app.com/" />
+
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:title"
+            content="¿Qué país es cuál? No te confundas más"
+        />
+        <meta
+            property="og:description"
+            content="Buscador instantáneo de países parecidos para que nunca más falles en geografía."
+        />
+        <meta
+            property="og:image"
+            content="https://tu-app.com/static/og-image.jpg"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Guía de Países Confusos" />
+
+        <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+        <link rel="stylesheet" href="/static/css/style.css" />
+
+        <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    </head>
+
+    <body>
+        <h1>🔎 Buscador de Países Confusos</h1>
+
+        <input
+            type="text"
+            name="q"
+            placeholder="Empieza a escribir... (ej: Eslo)"
+            hx-get="/"
+            hx-trigger="keyup changed delay:200ms"
+            hx-target="#lista-paises"
+        />
+
+        <div id="lista-paises">{{template "resultados" .}}</div>
+
+        {{define "resultados"}} {{range .}}
+        <div class="card">
+            <h2>{{.Nombre}}</h2>
+            <p>No confundir con: <span class="confuso">{{.Confuso}}</span></p>
+            <p>{{.Dato}}</p>
+        </div>
+        {{else}}
+        <p>No se encontraron países.</p>
+        {{end}} {{end}}
+
+        <footer>
+            <div class="footer-content">
+                <p><strong>PROYECTO:</strong> PAÍSES CONFUSOS (2026)</p>
+                <p>
+                    CREADO POR:
+                    <a
+                        href="https://github.com/santiagourdaneta"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Desarrollador Web Santiago Urdaneta
+                    </a>
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
