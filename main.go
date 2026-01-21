@@ -109,6 +109,19 @@ func main() {
 		}
 
 		query := strings.ToLower(r.URL.Query().Get("q"))
+
+		// Escudo contra "Ruido" y ataques de saturación
+		if len(query) > 40 {
+			w.Write([]byte("<p style='color: var(--accent);'>⚠️ ENTRADA DEMASIADO LARGA</p>"))
+			return
+		}
+
+		// Opcional: Si detecta caracteres sospechosos como + * / ?
+		if strings.ContainsAny(query, "+*/?$%#") {
+			w.Write([]byte("<p style='color: var(--accent); font-family: serif;'>🚫 BÚSQUEDA NO VÁLIDA: SOLO LETRAS</p>"))
+			return
+		}
+
 		var resultados []Pais
 		for _, p := range baseDeDatos {
 			if strings.Contains(strings.ToLower(p.Nombre), query) {

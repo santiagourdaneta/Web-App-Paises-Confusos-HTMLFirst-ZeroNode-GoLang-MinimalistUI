@@ -39,12 +39,19 @@
 
         <input
             type="text"
+            maxlength="50"
             name="q"
             placeholder="Empieza a escribir... (ej: Eslo)"
             hx-get="/"
             hx-trigger="keyup changed delay:200ms"
             hx-target="#lista-paises"
+            class="input-1973"
         />
+
+        <div
+            id="error-message"
+            style="color: var(--accent); font-weight: bold; margin-top: 10px"
+        ></div>
 
         <div id="lista-paises">{{template "resultados" .}}</div>
 
