@@ -11,8 +11,7 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 COPY --from=builder /app/main .
 COPY --from=builder /app/index.html .
-# Si tienes carpeta static, quita el comentario de abajo:
-# COPY --from=builder /app/static ./static
+COPY --from=builder /app/static ./static
 
 EXPOSE 8080
 
