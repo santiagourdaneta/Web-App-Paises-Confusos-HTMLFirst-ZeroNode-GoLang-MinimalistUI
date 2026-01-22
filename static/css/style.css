@@ -149,3 +149,39 @@ footer a:hover {
     display: inline-block;
     background: rgba(139, 0, 0, 0.1);
 }
+:root {
+    --bg-color: #0d0d0d; /* Negro profundo */
+    --accent-red: #8b0000; /* Rojo cinematográfico */
+    --text-silver: #e0e0e0; /* Gris claro, no blanco puro */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-silver);
+    font-family:
+        "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Limpia para el cuerpo */
+    background-image: url("data:image/svg+xml,..."); /* Aquí va tu efecto de grano */
+}
+
+h1 {
+    font-family: "Impact", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 8px; /* Espaciado entre letras para elegancia */
+    color: var(--accent-red);
+    border-bottom: 4px solid var(--accent-red);
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+}
+
+/* Las tarjetas de países necesitan "aire" */
+.country-card {
+    background: #161616;
+    border-left: 5px solid var(--accent-red);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.country-card:hover {
+    transform: translateX(10px); /* Un detalle sutil de interacción */
+}
