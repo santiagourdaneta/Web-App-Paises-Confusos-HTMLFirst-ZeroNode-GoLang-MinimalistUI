@@ -1,5 +1,8 @@
 name: CI-CD_Paises_Confusos
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [ master, main ]
